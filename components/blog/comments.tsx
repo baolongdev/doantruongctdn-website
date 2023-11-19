@@ -5,16 +5,16 @@ function Comments() {
     <div className="mb-5">
       <Giscus
         id="comments"
-        repo="fleetingnotes/fleeting-notes-website-md"
-        repoId="R_kgDOImOn5w"
-        category="Announcements"
-        categoryId="DIC_kwDOImOn584CTCQN"
+        repo="baolongdev/doantruongctdn-website"
+        repoId="R_kgDOKvaHsg"
+        category="General"
+        categoryId="DIC_kwDOKvaHss4CbE4P"
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
         theme="light"
-        lang="en"
+        lang="vi"
         loading="lazy"
       />
     </div>
