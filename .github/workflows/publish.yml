@@ -1,7 +1,7 @@
 name: Trigger publish workflow
 env:
   GH_USERNAME: baolongdev
-  GH_REPONAME: doantruongctdn-website-md
+  GH_REPONAME: doantruongctdn-md
   WORKFLOW_FILE: publish.yml
 on:
   workflow_dispatch:
