@@ -1,14 +1,15 @@
 import { useRouter } from "next/router";
-import Layout from "../components/misc/layout";
-import PostType from "../interfaces/post";
-import path from "path";
 import ErrorPage from "next/error";
-import { getPostBySlug, getLinksMapping, getAllPosts } from "../lib/api";
+import { getAllPosts, getLinksMapping, getPostBySlug } from "../lib/api";
+import Head from "next/head";
 import { markdownToHtml } from "../lib/markdownToHtml";
-import Comments from "../components/blog/comments";
-import PostWrapper from "../components/post/post-wrapper";
+import type PostType from "../interfaces/post";
+import path from "path";
 import PostSingle from "../components/post/post-single";
+import Layout from "../components/misc/layout";
+import Comments from "../components/blog/comments";
 import { NextSeo } from "next-seo";
+import PostWrapper from "../components/post/post-wrapper";
 
 type Items = {
   title: string;
@@ -24,15 +25,13 @@ type Props = {
 export default function Post({ post, backlinks }: Props) {
   const router = useRouter();
   const description = post.excerpt.slice(0, 155);
-  const absUrl = path.join("http://localhost:3000/", router.asPath);
+  const absUrl = path.join("https://fleetingnotes.app", router.asPath);
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
     <>
-      {router.isFallback ? (
-        <h1>Loading…</h1>
-      ) : (
+      {router.isFallback ? <h1>Loading…</h1> : (
         <Layout>
           <NextSeo
             title={post.title}
@@ -43,16 +42,14 @@ export default function Post({ post, backlinks }: Props) {
               description,
               type: "article",
               url: absUrl,
-              images: [
-                {
-                  url: post.ogImage?.url
-                    ? post.ogImage.url
-                    : "https://fleetingnotes.app/favicon/512.png",
-                  width: post.ogImage?.url ? null : 512,
-                  height: post.ogImage?.url ? null : 512,
-                  type: null,
-                },
-              ],
+              images: [{
+                url: (post.ogImage?.url)
+                  ? post.ogImage.url
+                  : "https://fleetingnotes.app/favicon/512.png",
+                width: (post.ogImage?.url) ? null : 512,
+                height: (post.ogImage?.url) ? null : 512,
+                type: null,
+              }],
             }}
           />
           <PostWrapper className="max-w-2xl mx-auto px-4">
@@ -70,6 +67,7 @@ export default function Post({ post, backlinks }: Props) {
     </>
   );
 }
+
 type Params = {
   params: {
     slug: string[];
@@ -91,16 +89,14 @@ export async function getStaticProps({ params }: Params) {
   ]);
   const content = await markdownToHtml(post.content || "", slug);
   const linkMapping = await getLinksMapping();
-  const backlinks = Object.keys(linkMapping).filter(
-    (k) => linkMapping[k].includes(post.slug) && k !== post.slug
+  const backlinks = Object.keys(linkMapping).filter((k) =>
+    linkMapping[k].includes(post.slug) && k !== post.slug
   );
   const backlinkNodes = Object.fromEntries(
-    await Promise.all(
-      backlinks.map(async (slug) => {
-        const post = await getPostBySlug(slug, ["title", "excerpt"]);
-        return [slug, post];
-      })
-    )
+    await Promise.all(backlinks.map(async (slug) => {
+      const post = await getPostBySlug(slug, ["title", "excerpt"]);
+      return [slug, post];
+    })),
   );
 
   return {
@@ -116,7 +112,7 @@ export async function getStaticProps({ params }: Params) {
 
 export async function getStaticPaths() {
   let posts = await getAllPosts(["slug"]);
-  posts = posts.filter((p) => !p.slug.startsWith("docs/"));
+  posts = posts.filter(p => !p.slug.startsWith('docs/'))
 
   return {
     paths: posts.map((post) => {

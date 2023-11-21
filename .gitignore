@@ -37,4 +37,5 @@ next-env.d.ts
 
 # markdown
 /public/md_assets/
+/public/landing/
 /common_md/

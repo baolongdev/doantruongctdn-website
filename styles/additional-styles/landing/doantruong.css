@@ -1,0 +1,343 @@
+:root {
+  --dtbackgroundcolor: #fff;
+  --dtcolor: #000;
+}
+
+.doantruong__return-box {
+  position: fixed;
+  z-index: 11;
+  border-style: solid;
+  border-color: var(--dtcolor);
+  border-radius: 2rem;
+  margin: 0.5rem;
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+.doantruong__btn {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  border-style: solid;
+  border-color: var(--dtcolor);
+  border-radius: 1rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  transition: 0.2s ease-in-out;
+  opacity: 1;
+  cursor: pointer;
+}
+.doantruong__btn:hover {
+  background-color: var(--dtcolor);
+  color: var(--dtbackgroundcolor);
+}
+.doantruong__return-box:hover {
+  background-color: var(--dtcolor);
+}
+.doantruong__return:hover {
+  transform: translateX(-20%);
+  color: var(--dtbackgroundcolor);
+}
+.doantruong__return {
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  transition: 0.2s;
+  color: var(--dtcolor);
+}
+.doantruong__logo-bg {
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+}
+.doantruong__logo-overlay {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.doantruong {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  font-size: 1em;
+}
+.doantruong__container {
+  background-color: var(--dtbackgroundcolor);
+  color: var(--dtcolor);
+  font-size: 1em;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0em;
+}
+.doantruong__sticky {
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  overflow: hidden;
+  height: 100vh;
+  align-items: stretch;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.doantruong__trigger {
+  height: 80vh;
+  /* background-color: violent; */
+}
+.doantruong__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 3em;
+  padding-right: 1em;
+}
+
+.doantruong__visual {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  padding: 3em;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-top-left-radius: 3.13em;
+  border-bottom-left-radius: 3.13em;
+}
+.doantruong__tab-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-column-gap: 0.88em;
+  grid-row-gap: 0.88em;
+}
+.doantruong__tab-item {
+  transition: opacity 200ms ease;
+  cursor: pointer;
+}
+.doantruong__tab-text {
+  font-size: 1.25em;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+.doantruong__tab-line {
+  width: 0%;
+  height: 0.2em;
+  background-color: var(--dtcolor);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.doantruong__tab-item.is-active .doantruong__tab-line {
+  opacity: 1;
+}
+.doantruong__tab-item.is-active {
+  opacity: 1;
+}
+.doantruong__about-title {
+  /* text-transform: uppercase; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: calc(var(--h1-font-size) + 0.5rem);
+  line-height: 120%;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  /* width: 110%; */
+}
+.doantruong__about-content {
+  font-size: var(--h3-font-size);
+  text-align: justify;
+}
+.doantruong__about-list {
+  position: relative;
+}
+.doantruong__about-item {
+  position: absolute;
+  left: 0%;
+  top: auto;
+  right: auto;
+  bottom: 0%;
+  z-index: -1;
+  width: 100%;
+  max-width: 32em;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.doantruong__about-item.is-active {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+}
+.doantruong__about__mobile-icon {
+  display: none;
+}
+.doantruong__about__heading-wrap {
+  padding-bottom: 1.3em;
+}
+.doantruong__about__mobile-img {
+  display: none;
+}
+.doantruong__visual {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.doantruong__visual-list {
+}
+
+.doantruong__img-list {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: 100%;
+}
+.doantruong__img-item {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 4%;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.doantruong__img-item.is-active {
+  opacity: 1;
+}
+.doantruong__img-photo {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2);
+  object-fit: cover;
+}
+.doantruong__img-icon {
+  position: relative;
+  width: 6em;
+  max-width: 70%;
+  transform: scale(1.2);
+}
+
+.doantruong__numbers {
+  position: relative;
+  z-index: 2;
+  font-size: 2.25em;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.doantruong__scroll-progress {
+  position: absolute;
+  left: auto;
+  top: 0%;
+  right: 0%;
+  bottom: auto;
+  z-index: 3;
+  width: 5px;
+  height: 0%;
+  background-color: var(--dtcolor);
+}
+.gridSettings {
+  grid-column-start: span 1;
+  grid-column-end: span 1;
+  grid-row-start: span 1;
+  grid-row-end: span 1;
+}
+@media screen and (max-width: 991px) {
+  .doantruong__sticky {
+    position: relative;
+    height: auto;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .doantruong__trigger {
+    display: none;
+  }
+  .doantruong__visual {
+    display: none;
+  }
+  .doantruong__content {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+  .doantruong__about-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    grid-column-gap: 5em;
+    grid-row-gap: 5em;
+  }
+  .doantruong__about-item {
+    position: relative;
+    z-index: 2;
+    max-width: none;
+    opacity: 1;
+  }
+  .doantruong__about__mobile-icon {
+    display: block;
+    width: 2.9em;
+    margin-bottom: 1.6em;
+  }
+  .doantruong__about__heading-wrap {
+    max-width: 27em;
+  }
+  .doantruong__about-content {
+    width: 100%;
+    max-width: 25em;
+  }
+  .doantruong__about__mobile-img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 450px;
+    margin-top: 2em;
+    padding-top: 50%;
+  }
+  .doantruong__about__mobile-photo {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .doantruong__tab-wrapper {
+    display: none;
+  }
+  .doantruong__return-box {
+    position: absolute;
+  }
+
+  :root {
+    --dtbackgroundcolor: #fff;
+    --dtcolor: #000;
+  }
+}
+@media screen and (max-width: 479px) {
+  .doantruong__about-title {
+    font-size: 3em;
+  }
+}

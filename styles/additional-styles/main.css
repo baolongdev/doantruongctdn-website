@@ -208,8 +208,8 @@ the website, in dark theme
 /*=============== BUTTONS ===============*/
 .button {
   cursor: pointer;
-  display: inline-block;
-  background-color: var(--first-color);
+  display: inline-block !important;
+  background-color: var(--first-color) !important;
   color: #fff;
   padding: 1rem 1.75rem;
   border-radius: 0.5rem;

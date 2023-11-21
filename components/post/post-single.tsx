@@ -9,7 +9,7 @@ type Props = {
   content: string;
   date?: string;
   author?: Author;
-  backlinks: {
+  backlinks?: {
     [k: string]: {
       title: string;
       excerpt: string;

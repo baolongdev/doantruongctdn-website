@@ -4,11 +4,12 @@ import matter from 'gray-matter'
 import { getFilesRecursively } from './modules/find-files-recusively.mjs'
 import { getMDExcerpt } from './markdownToHtml'
 
-const mdDir = path.join(process.cwd(), process.env.COMMON_MD_DIR)
+export const mdDir = path.join(process.cwd(), process.env.COMMON_MD_DIR)
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
   const realSlug = slug.replace(/\.md$/, '')
   const fullPath = path.join(mdDir, `${realSlug}.md`)
+  
   const data = parseFileToObj(fullPath);
   
   type Items = {

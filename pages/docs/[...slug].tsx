@@ -29,7 +29,7 @@ export default function DocumentationPost(
   { post, backlinks, sidebarData }: Props,
 ) {
   const router = useRouter();
-  const description = post.excerpt.slice(0, 155);
+  // const description = post.excerpt.slice(0, 155);
   const absUrl = path.join("https://fleetingnotes.app", router.asPath);
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -38,7 +38,7 @@ export default function DocumentationPost(
     <>
       {router.isFallback ? <h1>Loading…</h1> : (
         <Layout>
-          <NextSeo
+          {/* <NextSeo
             title={post.title}
             description={description}
             canonical={absUrl}
@@ -56,7 +56,7 @@ export default function DocumentationPost(
                 type: null,
               }],
             }}
-          />
+          /> */}
           <PostWrapper className="max-w-5xl mx-auto px-4">
             <div className="md:flex md:justify-between">
               <DocumentationSidebar
