@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SidebarData } from "../../pages/docs/[[...slug]]";
+import { SidebarData } from "../../pages/docs/[...slug]";
 
 type Props = {
   sidebarData: SidebarData;
