@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { activities } from "../../store/activities";
 
 export default function Activities() {
   const [activities, SetActivities] = useState([]);

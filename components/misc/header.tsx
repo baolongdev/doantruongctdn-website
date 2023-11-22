@@ -15,14 +15,22 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.pageYOffset;
-
       sections.forEach((current) => {
         const sectionHeight = (current as HTMLElement).offsetHeight,
           sectionTop = (current as HTMLElement).offsetTop - 58,
           sectionId = current.id;
 
+        // if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        //   setActiveSection(sectionId);
+        // }
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          setActiveSection(sectionId);
+          document
+            .querySelector(".nav__menu a[href*=" + sectionId + "]")
+            ?.classList.add("active-link");
+        } else {
+          document
+            .querySelector(".nav__menu a[href*=" + sectionId + "]")
+            ?.classList.remove("active-link");
         }
       });
     };
@@ -35,7 +43,7 @@ export default function Header() {
         scrollUp?.classList.remove("show-scroll");
       }
     };
-    const sections = document.querySelectorAll('section[id]')
+    const sections = document.querySelectorAll("section[id]");
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScrollUp);
 

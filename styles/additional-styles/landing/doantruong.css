@@ -24,6 +24,7 @@
   transition: 0.2s ease-in-out;
   opacity: 1;
   cursor: pointer;
+  border-width: 2.25px;
 }
 .doantruong__btn:hover {
   background-color: var(--dtcolor);

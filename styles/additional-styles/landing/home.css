@@ -93,7 +93,7 @@
 .home__slider-mask {
   /* max-width: 100% !important; */
   /* height: auto; */
-  mask-image: url(/landing/hero-home/mask/2.png);
+  mask-image: url(/md_assets/hero-home/mask/2.png);
   mask-size: 0%;
   mask-repeat: no-repeat;
   mask-position: 50% 50%;

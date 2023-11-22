@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Thumbs } from "swiper/modules";
-import { numberOfPhotos, rootDirectory } from "../../store/about";
 import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/effect-fade";

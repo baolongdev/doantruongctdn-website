@@ -3,11 +3,10 @@ import ErrorPage from "next/error";
 import path from "path";
 import { markdownToHtml } from "../../lib/markdownToHtml";
 import { useRouter } from "next/router";
-import PostType from "../../interfaces/post";
 import { NextSeo } from "next-seo";
 import PostWrapper from "../../components/post/post-wrapper";
-import PostSingle from "../../components/post/post-single";
-import SlipImageTopEffect from "../../components/effect-intro/slip-image-top";
+import PostBchType from "../../interfaces/post-bch";
+import PostBchSingle from "../../components/post/post-bch";
 
 type Items = {
   title: string;
@@ -15,18 +14,18 @@ type Items = {
 };
 
 type Props = {
-  post: PostType;
+  post: PostBchType;
   slug: string;
-  backlinks: { [k: string]: Items };
 };
 
-export default function ShowInfo({ post, backlinks }: Props) {
+export default function ShowInfo({ post }: Props) {
   const router = useRouter();
-  const description = post?.excerpt?.slice(0, 155) || "abc";
   const absUrl = path.join("https://fleetingnotes.app", router.asPath);
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  console.log(post);
+
   return (
     <>
       {router.isFallback ? (
@@ -35,11 +34,11 @@ export default function ShowInfo({ post, backlinks }: Props) {
         <>
           <NextSeo
             title={post.title}
-            description={description}
+            description={post.subtitle}
             canonical={absUrl}
             openGraph={{
               title: post.title,
-              description,
+              description: post.subtitle,
               type: "article",
               url: absUrl,
               images: [
@@ -54,23 +53,11 @@ export default function ShowInfo({ post, backlinks }: Props) {
               ],
             }}
           />
-          <SlipImageTopEffect
-            style={{backgroundColor: post.BgColor}}
-            ImageList={post.imageList}
-            logo={post.logo}
-          >
-            <PostWrapper
-              className={`clb_da-child max-w-2xl min-h-screen mx-auto px-4`}
-            >
-              <PostSingle
-                title={post.title}
-                content={post.content}
-                date={post.date}
-                author={post.author}
-                backlinks={backlinks}
-              />
-            </PostWrapper>
-          </SlipImageTopEffect>
+          <PostBchSingle
+            title={post.title}
+            subtitle={post.subtitle}
+            data={post.data}
+          />
         </>
       )}
     </>
@@ -85,41 +72,19 @@ type Params = {
 
 export const getStaticProps = async ({ params }: Params) => {
   const slug = path.join(...params.slug);
-  const docSlug = path.join("clb-da", slug, "gioithieu");
+  const docSlug = path.join("doantruong/bch", slug, "gioithieu");
   const post = await getPostBySlug(docSlug, [
     "title",
-    "content",
-    "logo",
-    "BgColor",
-    "textColor",
-    "imageList",
+    "subtitle",
+    "data",
     "slug",
   ]);
-
-  console.log(post);
-
-  const content = await markdownToHtml(post.content || "", docSlug);
-  const linkMapping = await getLinksMapping();
-  const backlinks = Object.keys(linkMapping).filter(
-    (k) => linkMapping[k].includes(post.slug) && k !== post.slug
-  );
-
-  const backlinkNodes = Object.fromEntries(
-    await Promise.all(
-      backlinks.map(async (slug) => {
-        const post = await getPostBySlug(slug, ["title", "excerpt"]);
-        return [slug, post];
-      })
-    )
-  );
 
   return {
     props: {
       post: {
         ...post,
-        content,
       },
-      backlinks: backlinkNodes,
     },
   };
 };
