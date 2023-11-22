@@ -32,7 +32,7 @@ type Params = {
 const pageSize = 6;
 const filterPosts = (posts: any[]) => {
   return posts
-    .filter((post) => post.slug.startsWith('posts\\'))
+    .filter((post) => post.slug.startsWith('posts/'))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 }
 export const getStaticProps = async ({ params }: Params) => {
