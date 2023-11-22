@@ -55,9 +55,10 @@ export default function ShowInfo({ post, backlinks }: Props) {
             }}
           />
           <SlipImageTopEffect
-            style={{backgroundColor: post.BgColor}}
+            style={{ backgroundColor: post.BgColor, color: post.textColor || "#fff" }}
             ImageList={post.imageList}
             logo={post.logo}
+            className="color_inherit"
           >
             <PostWrapper
               className={`clb_da-child max-w-2xl min-h-screen mx-auto px-4`}

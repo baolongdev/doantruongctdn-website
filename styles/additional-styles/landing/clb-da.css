@@ -2,6 +2,9 @@
 .clb_da-child *{
   background-color: transparent !important;
 }
+.color_inherit *{
+  color: inherit !important;
+}
 .clbdas {
   background-color: var(--first-color);
   display: flex;

@@ -1,51 +1,11 @@
-import React, {
-  CSSProperties,
-  ReactNode,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { CSSProperties, ReactNode, useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useRouter } from "next/router";
 interface SlipImageEffectProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
   logo?: string;
   ImageList?: any; // Replace 'any' with the actual type of ImageList
-}
-
-function generateLoaderColumn(
-  isAlt,
-  isReversed,
-  isEdge,
-  isMiddle,
-  isCenter,
-  startIndex,
-  ImageList
-) {
-  return (
-    <div className={`activityhot__loader-column ${isAlt ? "is-alt" : ""}`}>
-      <div
-        className={`activityhot__loader__column-inner ${
-          isReversed ? "is-reversed" : ""
-        } ${isEdge ? "is-edge" : ""} ${isCenter ? "is-center" : ""}`}
-      >
-        {[...Array(5)].map((_, index) => (
-          <div key={index} className="activityhot__loader__img-wrap">
-            <img
-              src={`../md_assets/activities/${ImageList[index + startIndex]}`}
-              loading="eager"
-              alt=""
-              className={`activityhot__loader__img ${
-                isMiddle && index === 2 ? "is-middle" : ""
-              }`}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 }
 
 export default function SlipImageTopEffect({
@@ -60,7 +20,9 @@ export default function SlipImageTopEffect({
   const groupImageRef = useRef<HTMLDivElement>();
   const BackgroundOverlayRef = useRef<HTMLDivElement>();
   const LogoOverlayRef = useRef<HTMLImageElement>();
-  const imageRefs = useRef<HTMLImageElement[]>([]);
+  const imageRefs = useRef<(HTMLImageElement | null)[]>(
+    Array(ImageList?.length).fill(null)
+  );
 
   useEffect(() => {
     const t1 = gsap.timeline({ defaults: { duration: 2.5, ease: "expo.out" } });
@@ -120,7 +82,7 @@ export default function SlipImageTopEffect({
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let events: { [key: string]: { [key: string]: string } } = {
       mouse: {
         down: "mousedown",
@@ -230,11 +192,8 @@ export default function SlipImageTopEffect({
         <div className="clbinfo__blur">
           {ImageList?.map((image, index) => (
             <img
-              onError={() => {
-                imageRefs.current[image]?.remove();
-              }}
               onDoubleClick={() => {
-                imageRefs.current[image]?.classList.toggle("imageShow");
+                imageRefs.current[index]?.classList.toggle("imageShow");
               }}
               key={index}
               className={`clbinfo__groupImage-image image${index}`}
@@ -245,6 +204,7 @@ export default function SlipImageTopEffect({
           ))}
         </div>
       </div>
+
       <img
         src={`../md_assets/clb-da/${logo}`}
         className="clbinfo__logo-overlay"
