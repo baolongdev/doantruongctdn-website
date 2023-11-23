@@ -109,5 +109,8 @@ function getAllPostsLink(url) {
   const posts = getAllPosts(["slug", "title"]).filter((p: { slug: string }) =>
     p.slug.startsWith(url)
   );
+  posts.forEach((p: { slug: string }) => {
+    p.slug = p.slug.replace(url, "");
+  });
   return posts;
 }
