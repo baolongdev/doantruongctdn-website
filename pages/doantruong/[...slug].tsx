@@ -73,7 +73,7 @@ type Params = {
 export const getStaticProps = async ({ params }: Params) => {
   const slug = path.join(...params.slug);
   const docSlug = path.join("doantruong/bch", slug, "gioithieu");
-  console.log(docSlug);
+  console.log("tesst: ", docSlug);
   
   const post = await getPostBySlug(docSlug, [
     "title",
