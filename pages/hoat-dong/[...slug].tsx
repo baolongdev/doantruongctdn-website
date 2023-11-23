@@ -110,6 +110,7 @@ export const getStaticProps = async ({ params }: Params) => {
       })
     )
   );
+
   return {
     props: {
       post: {
@@ -121,28 +122,22 @@ export const getStaticProps = async ({ params }: Params) => {
   };
 };
 
+const filterPosts = (posts: any[]) => {
+  return posts
+    .filter((post) => post.slug.startsWith('activities/'))
+}
 export async function getStaticPaths() {
-  const posts = getAllPostsLink("activities");
+  let posts = await getAllPosts(['slug'])
+  posts = filterPosts(posts);
+  
   return {
-    paths: posts.map(
-      (post: { slug: string }): { params: { slug: string[] } } => {
-        return {
-          params: {
-            slug: post.slug.split(path.sep),
-          },
-        };
-      }
-    ),
+    paths: posts.map((post) => {
+      return {
+        params: {
+          slug: post.slug.split(path.sep),
+        },
+      };
+    }),
     fallback: false,
   };
-}
-
-function getAllPostsLink(url) {
-  const posts = getAllPosts(["slug", "title"]).filter((p: { slug: string }) =>
-    p.slug.startsWith(url)
-  );
-  posts.forEach((p: { slug: string }) => {
-    p.slug = p.slug.replace(url, "");
-  });
-  return posts;
 }
