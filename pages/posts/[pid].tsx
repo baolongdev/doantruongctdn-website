@@ -70,6 +70,7 @@ export async function getStaticPaths() {
     });
     pid += 1;
   }
+  
   return {
     paths: paths,
     fallback: false,

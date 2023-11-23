@@ -1,4 +1,4 @@
-import { getLinksMapping, getPostBySlug } from "../../lib/api";
+import { getAllPosts, getLinksMapping, getPostBySlug } from "../../lib/api";
 import ErrorPage from "next/error";
 import path from "path";
 import { markdownToHtml } from "../../lib/markdownToHtml";
@@ -126,8 +126,24 @@ export const getStaticProps = async ({ params }: Params) => {
 };
 
 export async function getStaticPaths() {
+  const posts = getAllPostsLink("clb-da");
   return {
-    paths: [],
+    paths: posts.map(
+      (post: { slug: string }): { params: { slug: string[] } } => {
+        return {
+          params: {
+            slug: post.slug.split(path.sep),
+          },
+        };
+      }
+    ),
     fallback: false,
   };
+}
+
+function getAllPostsLink(url) {
+  const posts = getAllPosts(["slug", "title"]).filter((p: { slug: string }) =>
+    p.slug.startsWith(url)
+  );
+  return posts;
 }

@@ -110,7 +110,6 @@ export const getStaticProps = async ({ params }: Params) => {
       })
     )
   );
-
   return {
     props: {
       post: {
@@ -123,8 +122,24 @@ export const getStaticProps = async ({ params }: Params) => {
 };
 
 export async function getStaticPaths() {
+  const posts = getAllPostsLink("activities");
   return {
-    paths: [],
+    paths: posts.map(
+      (post: { slug: string }): { params: { slug: string[] } } => {
+        return {
+          params: {
+            slug: post.slug.split(path.sep),
+          },
+        };
+      }
+    ),
     fallback: false,
   };
+}
+
+function getAllPostsLink(url) {
+  const posts = getAllPosts(["slug", "title"]).filter((p: { slug: string }) =>
+    p.slug.startsWith(url)
+  );
+  return posts;
 }
