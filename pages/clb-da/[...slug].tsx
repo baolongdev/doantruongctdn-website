@@ -19,12 +19,14 @@ export default function ShowClbDa() {
   const [post, setPost] = useState([]);
   const [absUrl, setAbsUrl] = useState<string>();
   const [docSlug, setDocSlug] = useState<string>();
-
+  console.log(urlbase);
+  
   async function getApi() {
     const fields = "title,content,logo,BgColor,textColor,imageList,slug";
-    const apiEndpoint = `${urlbase}api/file/readfile?slug=${urlfolder}/${docSlug}&fields=${fields}`;
+    const apiEndpoint = `${urlbase}/api/file/readfile?slug=${urlfolder}/${docSlug}&fields=${fields}`;
     const res = await fetch(apiEndpoint);
     const raws = await res.json();
+    
     setAbsUrl(`${urlbase}/${urlfolder}/${docSlug}`);
     setPost(raws);    
   }

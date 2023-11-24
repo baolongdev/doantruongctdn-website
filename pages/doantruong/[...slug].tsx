@@ -16,7 +16,7 @@ export default function ShowBchdoan() {
 
   async function getApi() {
     const fields = "title,subtitle,data,slug";
-    const apiEndpoint = `${urlbase}api/file/readfile?slug=${urlfolder}/${docSlug}&fields=${fields}`;
+    const apiEndpoint = `${urlbase}/api/file/readfile?slug=${urlfolder}/${docSlug}&fields=${fields}`;
     const res = await fetch(apiEndpoint);
     const raws = await res.json();
     setAbsUrl(`${urlbase}/${urlfolder}/${docSlug}`);
