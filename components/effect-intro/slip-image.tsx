@@ -13,7 +13,7 @@ function generateLoaderColumn(
   isCenter,
   startIndex,
   ImageList
-) {
+) {  
   return (
     <div className={`activityhot__loader-column ${isAlt ? "is-alt" : ""}`}>
       <div

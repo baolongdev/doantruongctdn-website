@@ -51,7 +51,7 @@ function PostSingle({
       </article>
 
       {/* Backlinks */}
-      {(Object.keys(backlinks).length > 0) && (
+      {backlinks&&(Object.keys(backlinks).length > 0) && (
         <div>
           <hr className="my-8 border border-dashed lg:block" />
           <h3 className="h3 mb-4">

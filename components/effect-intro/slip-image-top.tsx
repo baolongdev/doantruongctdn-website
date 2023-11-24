@@ -1,4 +1,10 @@
-import React, { CSSProperties, ReactNode, useEffect, useLayoutEffect, useRef } from "react";
+import React, {
+  CSSProperties,
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import { gsap } from "gsap";
 interface SlipImageEffectProps {
   children: ReactNode;
