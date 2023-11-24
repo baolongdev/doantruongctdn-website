@@ -59,7 +59,7 @@ export default function Header() {
       <nav className="nav container">
         <a href="#" className="nav__logo">
           <img
-            src="/assets/Logo/logo-doan.png"
+            src="/assets/logo/logo-doan.png"
             className="nav__logo-icon"
             alt=""
           />
