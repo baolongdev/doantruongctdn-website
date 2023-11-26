@@ -34,7 +34,7 @@ export default function Contact() {
     <section className="contact section container" id="contact">
       <div className="contact__container grid">
         <div className="contact__box">
-          <h2 className="section__title">CONTACT US HERE</h2>
+          <h2 className="section__title">Liện hệ với chúng tôi tại đây</h2>
 
           <div className="contact__data">
             <div className="contact__information">
@@ -119,7 +119,7 @@ export default function Contact() {
             </div>
           )}
           <button type="submit" className="button button--flex">
-            Send Message
+            Gửi tin nhắn
             <i className="ri-arrow-right-up-line button__icon"></i>
           </button>
         </form>
