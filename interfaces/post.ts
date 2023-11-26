@@ -7,6 +7,8 @@ type PostType = {
   content: string
   subtitle?: string
   date?: string
+  category?: string;
+  banner?: string;
   data?: []
   coverImage?: string
   logo?: string
