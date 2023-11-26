@@ -7,13 +7,12 @@ export default function Activities() {
     const slug = "activities/activities";
     const fields = "data";
     const res = await fetch(`api/file/readfile?slug=${slug}&fields=${fields}`);
-    const raws = await res.json()
+    const raws = await res.json();
     SetActivities(raws.data);
   }
   useEffect(() => {
     ClbDaList();
   }, []);
-
 
   return (
     <section className="activities section container" id="activities">
@@ -26,7 +25,11 @@ export default function Activities() {
           {activities.map((e: any, index: any) => (
             <div key={index} className="activities__card">
               <div className="activities__card-frame">
-                <img className="activities__card-img" src={e.img} alt="" />
+                <img
+                  className="activities__card-img"
+                  src={e.img}
+                  alt=""
+                />
               </div>
               <div className="activities__card-data">
                 <h2 className="activities__card-title">

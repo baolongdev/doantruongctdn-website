@@ -13,7 +13,7 @@ function generateLoaderColumn(
   isCenter,
   startIndex,
   ImageList
-) {  
+) {
   return (
     <div className={`activityhot__loader-column ${isAlt ? "is-alt" : ""}`}>
       <div
@@ -24,7 +24,11 @@ function generateLoaderColumn(
         {[...Array(5)].map((_, index) => (
           <div key={index} className="activityhot__loader__img-wrap">
             <img
-              src={`../md_assets/activities/${ImageList[index + startIndex]}`}
+              src={
+                /^https:\/\//.test(ImageList[index + startIndex])
+                  ? `../md_assets/activities/${ImageList[index + startIndex]}`
+                  : ImageList[index + startIndex]
+              }
               loading="eager"
               alt=""
               className={`activityhot__loader__img ${
@@ -64,7 +68,7 @@ export default function SlipImageEffect({
     const loader__flex = component?.querySelectorAll(
       ".activityhot__loader-flex"
     );
-    console.log(component);
+    // console.log(component);
 
     const tlset = gsap.timeline();
     tlset
@@ -113,7 +117,7 @@ export default function SlipImageEffect({
     tl.to(is__middle, {
       scale: "1",
       ease: "cubic-bezier(.445, .05, .111, .966)",
-    //   maskImage: "linear-gradient(black, transparent)",
+      //   maskImage: "linear-gradient(black, transparent)",
       duration: 2,
       delay: 2,
     });
@@ -121,7 +125,7 @@ export default function SlipImageEffect({
       maskImage: "linear-gradient(black 100%, transparent)",
       ease: "sine.in",
       duration: 2,
-    })
+    });
     tl.to(is__middle, {
       maskImage: "linear-gradient(black 0%, transparent)",
       duration: 2.5,
@@ -134,15 +138,17 @@ export default function SlipImageEffect({
       duration: 2,
       delay: 2,
     });
-    tl.timeline().to(component, {
-      scale: "0.3",
-      opacity: "0",
-      ease: "cubic-bezier(.445, .05, .111, .966)",
-      duration: 2,
-      delay: 5,
-    }).to(component, {
-      visibility: "hidden",
-    });
+    tl.timeline()
+      .to(component, {
+        scale: "0.3",
+        opacity: "0",
+        ease: "cubic-bezier(.445, .05, .111, .966)",
+        duration: 2,
+        delay: 5,
+      })
+      .to(component, {
+        visibility: "hidden",
+      });
   }, []);
 
   //   console.log(ImageList);

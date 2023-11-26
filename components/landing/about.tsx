@@ -67,7 +67,7 @@ export default function About() {
         spaceBetween={0}
         slidesPerView={3}
         modules={[Thumbs]}
-        className="controls"
+        className="controls about__controls-target"
       >
         {doantruongAbout["image"]?.map((e: any, index: any) => (
           <SwiperSlide key={index}>

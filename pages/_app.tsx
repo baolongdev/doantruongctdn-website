@@ -9,6 +9,7 @@ import posthog from 'posthog-js';
 import { Analytics } from '@vercel/analytics/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollRevealComponent from '../components/utils/scrollreveal';
 
 function setupPostHog() {
   // setup posthog
@@ -32,7 +33,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo {...SEO}/>
-      <Component {...pageProps} />
+      <ScrollRevealComponent>
+        <Component {...pageProps} />
+      </ScrollRevealComponent>
       <Analytics />
       <ToastContainer
         position="bottom-right"

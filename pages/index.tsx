@@ -6,7 +6,7 @@ import Activities from "../components/landing/activities";
 import ClbDa from "../components/landing/clb-da";
 import Contact from "../components/landing/contact";
 
-export default function Home() {
+export default function Home() {  
   return (
     <Layout>
       <HeroHome/>

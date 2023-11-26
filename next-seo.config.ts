@@ -1,28 +1,29 @@
 import { DefaultSeoProps } from "next-seo";
+import urlbase from "./store/linkwebbase";
 
 const description = ""
 // See https://www.npmjs.com/package/next-seo for more options
 const config: DefaultSeoProps = {
-  titleTemplate: "%s | AR_Advertisement",
-  defaultTitle: "AR_Advertisement ",
-  canonical: 'https://www.ar-advertisement.vercel.app/',
+  titleTemplate: "%s | Đoàn trường THPT chuyên Trần Đại Nghĩa",
+  defaultTitle: "Đoàn trường THPT chuyên Trần Đại Nghĩa ",
+  canonical: urlbase,
   description,
   
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    title: 'AR_Advertisement',
+    title: 'Đoàn trường THPT chuyên Trần Đại Nghĩa',
     description,
-    url: 'https://www.ar-advertisement.vercel.app/',
+    url: urlbase,
     images: [{
-      url: 'https://www.ar-advertisement.vercel.app/favicon/og-image.png',
+      url: `${urlbase}favicon/og-image.png`,
       width: 1200,
       height: 787,
       alt: 'Og Image Alt',
     }]
   },
   twitter: {
-    site: '@ar-advertisement.vercel_',
+    site: '@Đoàn trường THPT chuyên Trần Đại Nghĩa',
     cardType: 'summary_large_image',
   },
   additionalLinkTags: [

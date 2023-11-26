@@ -38,7 +38,7 @@ export default function HeroHome() {
           {heroHomeData["imageList"]?.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                src={`md_assets/hero-home/${image}`}
+                src={`${image}`}
                 alt={`Slide ${index + 1}`}
                 className="home__slider-img home__slider-mask"
               />

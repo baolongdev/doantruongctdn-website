@@ -71,7 +71,7 @@ export default function ClbDa() {
     const fields = "data,tags";
     const res = await fetch(`api/file/readfile?slug=${slug}&fields=${fields}`);
     const raws = await res.json();
-    console.log(raws);
+    // console.log(raws);
 
     SetClbinfo(raws);
   }
@@ -133,7 +133,11 @@ export default function ClbDa() {
             href={"clb-da/" + data.id}
             className={`clbdas__card mix ${data.tag}`}
           >
-            <img src={`${data.banner}`} alt="" className="clbdas__img" />
+            <img
+              src={`${data.banner}`}
+              alt=""
+              className="clbdas__img"
+            />
           </a>
         ))}
       </div>

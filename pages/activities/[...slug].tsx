@@ -27,7 +27,7 @@ export default function ShowBchdoan() {
     const res = await fetch(apiEndpoint);
     const raws = await res.json();
     setAbsUrl(`${urlbase}/${urlfolder}/${docSlug}`);
-    console.log(raws);
+    // console.log(raws);
 
     setPost(raws);
   }
@@ -45,7 +45,7 @@ export default function ShowBchdoan() {
   }, [slug]);
 
   if (!router.isFallback && !post["slug"]) {
-    return <ErrorPage statusCode={404} />;
+    return <h1>Loading…</h1>;
   }
   
   return (
@@ -67,7 +67,7 @@ export default function ShowBchdoan() {
                 {
                   url: post["ogImage"]?.url
                     ? post["ogImage"].url
-                    : "https://fleetingnotes.app/favicon/512.png",
+                    : `${urlbase}/favicon/512.png`,
                   width: post["ogImage"]?.url ? null : 512,
                   height: post["ogImage"]?.url ? null : 512,
                   type: null,

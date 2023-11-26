@@ -44,7 +44,7 @@ function PostBchSingle({ title, subtitle, data }: Props) {
             .map((bch, index) => (
               <div key={index} className="bch__card">
                 <div className="bch__card-img">
-                  <img src={`../../md_assets/doantruong/${bch["image"]}`} alt="" className="bch__img" />
+                  <img src={`${bch["image"]}`} alt="" className="bch__img" />
                 </div>
                 <h2 className="bch__card-title">
                   {bch["name"] + "-" + bch["class"]}
@@ -65,7 +65,7 @@ function PostBchSingle({ title, subtitle, data }: Props) {
             .map((bch, index) => (
               <div key={index} className="bch__card">
                 <div className="bch__card-img">
-                  <img src={`../../md_assets/doantruong/${bch["image"]}`} alt="" className="bch__img" />
+                  <img src={`${bch["image"]}`} alt="" className="bch__img" />
                 </div>
                 <h2 className="bch__card-title">
                   {bch["name"] + "-" + bch["class"]}
@@ -86,7 +86,7 @@ function PostBchSingle({ title, subtitle, data }: Props) {
             .map((bch, index) => (
               <div key={index} className="bch__card">
                 <div className="bch__card-img">
-                  <img src={`../../md_assets/doantruong/${bch["image"]}`} alt="" className="bch__img" />
+                  <img src={`${bch["image"]}`} alt="" className="bch__img" />
                 </div>
                 <h2 className="bch__card-title">
                   {bch["name"] + "-" + bch["class"]}

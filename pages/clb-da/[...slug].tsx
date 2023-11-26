@@ -19,7 +19,7 @@ export default function ShowClbDa() {
   const [post, setPost] = useState([]);
   const [absUrl, setAbsUrl] = useState<string>();
   const [docSlug, setDocSlug] = useState<string>();
-  console.log(urlbase);
+  // console.log(urlbase);
   
   async function getApi() {
     const fields = "title,content,logo,BgColor,textColor,imageList,slug";
@@ -44,7 +44,7 @@ export default function ShowClbDa() {
   }, [slug]);
 
   if (!router.isFallback && !post["slug"]) {
-    return <ErrorPage statusCode={404} />;
+    return <h1>Loading…</h1>;
   }
 
   return (
@@ -66,7 +66,7 @@ export default function ShowClbDa() {
                 {
                   url: post["ogImage"]?.url
                     ? post["ogImage"].url
-                    : "https://fleetingnotes.app/favicon/512.png",
+                    : `${urlbase}/favicon/512.png`,
                   width: post["ogImage"]?.url ? null : 512,
                   height: post["ogImage"]?.url ? null : 512,
                   type: null,

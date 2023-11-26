@@ -13,7 +13,7 @@ export default function MenuCategories() {
     const res = await fetch(apiEndpoint);
     const raws = await res.json();
 
-    console.log(raws.data);
+    // console.log(raws.data);
     SetPopularCategories(raws.data);
   }
   useEffect(() => {

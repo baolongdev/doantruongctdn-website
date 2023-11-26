@@ -13,7 +13,7 @@ export default function PopularCategories() {
     const res = await fetch(apiEndpoint);
     const raws = await res.json();
 
-    console.log(raws.data);
+    // console.log(raws.data);
     SetPopularCategories(raws.data);
   }
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function PopularCategories() {
               <Link
                 href={category.url}
                 className={`${styles.category}`}
-                style={{backgroundColor: category.BgColor}}
+                style={{ backgroundColor: category.BgColor }}
                 key={index}
               >
                 {category.image && (

@@ -204,7 +204,12 @@ export default function SlipImageTopEffect({
               key={index}
               className={`clbinfo__groupImage-image image${index}`}
               ref={(el) => (imageRefs.current[index] = el)}
-              src={`../md_assets/clb-da/${image}`}
+              src={
+                /^https:\/\//.test(image)
+                  ? `../md_assets/activities/${image}`
+                  : image
+              }
+              // src={`../md_assets/clb-da/${image}`}
               alt=""
             />
           ))}
@@ -212,7 +217,9 @@ export default function SlipImageTopEffect({
       </div>
 
       <img
-        src={`../md_assets/clb-da/${logo}`}
+        src={
+          /^https:\/\//.test(logo) ? `../md_assets/activities/${logo}` : logo
+        }
         className="clbinfo__logo-overlay"
         ref={LogoOverlayRef}
         alt=""

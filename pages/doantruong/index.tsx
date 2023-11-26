@@ -128,7 +128,7 @@ export default function index() {
               const myIndex = Array.from(
                 (anchor.parentNode as HTMLElement)?.children
               ).indexOf(anchor);
-              console.log(myIndex);
+              // console.log(myIndex);
 
               const trigger = triggers[myIndex];
               if (trigger) {
@@ -350,7 +350,7 @@ export default function index() {
                       <div className="doantruong__about__mobile-img">
                         <img
                           className="doantruong__about__mobile-photo"
-                          src={`md_assets/doantruong/find-out-more/${data.image}`}
+                          src={`${data.image}`}
                           alt=""
                         />
                       </div>
@@ -379,7 +379,7 @@ export default function index() {
                     {/* <p className="doantruong__tab-text">{data.title}</p> */}
                     <img
                       className="doantruong__img-photo"
-                      src={`md_assets/doantruong/find-out-more/${data.image}`}
+                      src={`${data.image}`}
                       alt=""
                       tr-item-animation="scale-to-1"
                     />

@@ -22,7 +22,7 @@ const PostPreview = ({
   author,
   slug,
 }: Props) => {
-  console.log(excerpt.substring(0, 60));
+  // console.log(excerpt.substring(0, 60));
 
   return (
     <div className={styles.container}>
