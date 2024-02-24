@@ -9,6 +9,7 @@ import SEO from "../next-seo.config";
 import "../styles/index.css";
 import { NextUIProvider } from "@nextui-org/system";
 import ScrollRevealComponent from '../components/utils/scrollreveal';
+import { Montserrat } from 'next/font/google';
 
 function setupPostHog() {
   // setup posthog
@@ -29,8 +30,14 @@ function setupPostHog() {
 }
 export default function MyApp({ Component, pageProps }: AppProps) {
   setupPostHog();
+
   return (
     <>
+      <style jsx global>{`
+        :root {
+          --body-font: !${Montserrat().style.fontFamily};
+        }
+      `}</style>
       <DefaultSeo {...SEO} />
       <NextUIProvider navigate={router.push}>
         <ScrollRevealComponent>
