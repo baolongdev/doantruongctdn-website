@@ -22,7 +22,7 @@ const PostPreview = ({
   author,
   slug,
 }: Props) => {
-  // console.log(excerpt.substring(0, 60));
+  // console.log(author);
 
   return (
     <div className={styles.container}>
@@ -32,10 +32,14 @@ const PostPreview = ({
       {/* {banner && (
       )} */}
       <div className={styles.textContainer}>
-        <div className={styles.detail}>
-          <span className={styles.date}>{date} - </span>
-          <span className={styles.category}>{category}</span>
-        </div>
+        {(author || date) && (
+          <div className={`${styles.detail} flex !flex-row items-center gap-5`}>
+            {/* <span className={styles.date}>{date} - </span> */}
+            <PostMeta author={author} date={date} />
+            <span className="text-2xl">-</span>
+            <span className={styles.category}>{category}</span>
+          </div>
+        )}
         <Link as={`/${slug}`} href="/[...slug]" className="hover:underline">
           <h1 className="h3">{title}</h1>
         </Link>

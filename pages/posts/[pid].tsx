@@ -17,7 +17,7 @@ export default function Index({ posts, pid, maxPid }: Props) {
   return (
     <Layout>
       <NextSeo title="Blog" />
-      <PopularCategories/>
+      <PopularCategories />
       <PostList posts={posts || []} title="Bài viết gần đây" />
       <Pagination currPage={pid} maxPage={maxPid} />
     </Layout>

@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getAllPosts, getLinksMapping, getPostBySlug } from "../lib/api";
-import Head from "next/head";
 import { markdownToHtml } from "../lib/markdownToHtml";
 import type PostType from "../interfaces/post";
 import path from "path";
@@ -10,6 +9,7 @@ import Layout from "../components/misc/layout";
 import Comments from "../components/blog/comments";
 import { NextSeo } from "next-seo";
 import PostWrapper from "../components/post/post-wrapper";
+import urlbase from "../store/linkwebbase";
 
 type Items = {
   title: string;
@@ -25,7 +25,7 @@ type Props = {
 export default function Post({ post, backlinks }: Props) {
   const router = useRouter();
   const description = post.excerpt.slice(0, 155);
-  const absUrl = path.join("https://fleetingnotes.app", router.asPath);
+  const absUrl = path.join(urlbase, router.asPath);
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
@@ -45,7 +45,7 @@ export default function Post({ post, backlinks }: Props) {
               images: [{
                 url: (post.ogImage?.url)
                   ? post.ogImage.url
-                  : "https://fleetingnotes.app/favicon/512.png",
+                  : `${urlbase}/favicon/512.png`,
                 width: (post.ogImage?.url) ? null : 512,
                 height: (post.ogImage?.url) ? null : 512,
                 type: null,
