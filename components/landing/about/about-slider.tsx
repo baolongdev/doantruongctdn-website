@@ -3,7 +3,7 @@ import { EffectFade, Autoplay, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/effect-fade";
-import { ThumbnailSlider } from "./thumbnail-slider";
+// import { ThumbnailSlider } from "./thumbnail-slider";
 
 export const AboutSlider = ({ imageList, thumbsSwiper }) => {
     return (

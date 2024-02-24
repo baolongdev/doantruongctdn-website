@@ -1,8 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { TabMain } from "../../../store/tab-main";
-import ChangeTheme from "./change-theme";
-import { MenuIcon } from "@heroicons/react/24/outline";
 import NavMenu from "./nav-menu";
 import ButtonHeader from "./button-header";
 import LogoHeader from "./logo_header";

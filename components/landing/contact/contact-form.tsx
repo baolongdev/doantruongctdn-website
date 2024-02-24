@@ -6,9 +6,9 @@ export const ContactForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        const email = event.target.user_email.value;
-        const user_name = event.target.user_name.value;
-        const user_message = event.target.user_message.value;
+        // const email = event.target.user_email.value;
+        // const user_name = event.target.user_name.value;
+        // const user_message = event.target.user_message.value;
         emailjs
             .sendForm(
                 "service_mge5eei",
