@@ -1,8 +1,6 @@
 import React from "react";
-import styles from "./menu.module.css";
 import EditorsPick from "./editors-pick";
 import MenuCategories from "./menu-categories";
-import MostPopular from "./most-popular";
 
 export default function MenuAside() {
   return (
