@@ -25,8 +25,8 @@ function generateLoaderColumn(
             <img
               src={
                 /^https:\/\//.test(ImageList[index + startIndex])
-                  ? `../md_assets/activities/${ImageList[index + startIndex]}`
-                  : ImageList[index + startIndex]
+                  ? ImageList[index + startIndex]
+                  : `../md_assets/activities/${ImageList[index + startIndex]}`
               }
               loading="eager"
               alt=""
