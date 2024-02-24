@@ -2,8 +2,7 @@ import React from "react";
 
 import PostPreview from "../post/post-preview";
 import type Post from "../../interfaces/post";
-// import PopularPosts from "./editors-pick";
-// import PreviewLink from "../misc/preview-link";
+
 import MenuAside from "./menu-aside";
 
 type Props = {
