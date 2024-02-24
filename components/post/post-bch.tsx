@@ -1,8 +1,8 @@
 import React from "react";
-import Author from "../../interfaces/author";
-import Backlinks from "../misc/backlinks";
-import PostBody from "./post-body";
-import PostMeta from "./post-meta";
+// import Author from "../../interfaces/author";
+// import Backlinks from "../misc/backlinks";
+// import PostBody from "./post-body";
+// import PostMeta from "./post-meta";
 import { convertNewlinesToSpans } from "../utils/convertNewlinesToSpans ";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";

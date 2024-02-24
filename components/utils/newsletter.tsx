@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 export async function subscribeCustomerIo(email: String) {
   const resp = await fetch("https://track.customer.io/api/v1/forms/newsletter_form/submit", {
@@ -18,16 +18,16 @@ export async function subscribeCustomerIo(email: String) {
 }
 
 export const Newsletter = () => {
-  const [newsletterSubbed, setNewsletterSubbed] = useState(false);
+  // const [newsletterSubbed, setNewsletterSubbed] = useState(false);
 
-  const subscribeNewsletter = async (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const success = subscribeCustomerIo(email);
-    if (success) {
-      setNewsletterSubbed(true);
-    }
-  }
+  // const subscribeNewsletter = async (event) => {
+  //   event.preventDefault();
+  //   const email = event.target.email.value;
+  //   const success = subscribeCustomerIo(email);
+  //   if (success) {
+  //     setNewsletterSubbed(true);
+  //   }
+  // }
 
   return (
     <>

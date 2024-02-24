@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { convertNewlinesToSpans } from "../../components/utils/convertNewlinesToSpans ";
 import { useRouter } from "next/router";
@@ -17,7 +17,7 @@ export default function index() {
   const LogoBgRefs = useRef();
   const componentsRef = useRef<HTMLDivElement>();
   const [doantruong, SetDoantruong] = useState([]);
-  const [checkpoint, SetCheckPoint] = useState(0);
+  // const [checkpoint, SetCheckPoint] = useState(0);
 
   async function doantruongGet() {
     const slug = "doantruong/find-out-more";
@@ -319,7 +319,7 @@ export default function index() {
                   tr-scroll-toggle="list"
                 >
                   {/* List */}
-                  {doantruong?.map((data, index) => (
+                  {doantruong?.map((_data, index) => (
                     <div key={index} className={`doantruong__tab-item`}>
                       {/* <p className="doantruong__tab-text">{data.title}</p> */}
                       <div

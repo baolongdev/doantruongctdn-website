@@ -19,7 +19,7 @@ export const AboutSlider = ({ imageList, thumbsSwiper }) => {
             thumbs={{ swiper: thumbsSwiper }}
             className="gallery-top"
         >
-            {imageList?.map((image, index) => (
+            {imageList?.map((_image, index) => (
                 <SwiperSlide key={index}>
                     <img
                         src={`md_assets/doantruong/about/${index + 1}.jpg`}

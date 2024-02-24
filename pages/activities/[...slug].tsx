@@ -1,14 +1,14 @@
-import { getAllPosts, getPostBySlug } from "../../lib/api";
-import Post from "../../interfaces/post";
-import ErrorPage from "next/error";
+// import { getAllPosts, getPostBySlug } from "../../lib/api";
+// import Post from "../../interfaces/post";
+// import ErrorPage from "next/error";
 import path from "path";
-import { markdownToHtml } from "../../lib/markdownToHtml";
+// import { markdownToHtml } from "../../lib/markdownToHtml";
 import { useRouter } from "next/router";
-import PostType from "../../interfaces/post";
+// import PostType from "../../interfaces/post";
 import { NextSeo } from "next-seo";
 import PostWrapper from "../../components/post/post-wrapper";
 import PostSingle from "../../components/post/post-single";
-import Comments from "../../components/blog/comments";
+// import Comments from "../../components/blog/comments";
 import SlipImageEffect from "../../components/effect-intro/slip-image";
 import urlbase from "../../store/linkwebbase";
 import { useEffect, useState } from "react";
@@ -20,7 +20,7 @@ export default function ShowBchdoan() {
   const [post, setPost] = useState([]);
   const [absUrl, setAbsUrl] = useState<string>();
   const [docSlug, setDocSlug] = useState<string>();
-  
+
   async function getApi() {
     const fields = "title,content,logo,date,BgColor,imageList,slug";
     const apiEndpoint = `${urlbase}/api/file/readfile?slug=${urlfolder}/${docSlug}&fields=${fields}`;
@@ -47,7 +47,7 @@ export default function ShowBchdoan() {
   if (!router.isFallback && !post["slug"]) {
     return <h1>Loading…</h1>;
   }
-  
+
   return (
     <div>
       {(router.isFallback) ? (

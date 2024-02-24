@@ -1,4 +1,4 @@
-import ErrorPage from "next/error";
+// import ErrorPage from "next/error";
 import path from "path";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";

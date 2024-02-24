@@ -1,4 +1,3 @@
-import { Fragment, useEffect } from "react";
 import Layout from "../components/misc/layout";
 import HeroHome from "../components/landing/hero-home/hero-home";
 import About from "../components/landing/about/about";
