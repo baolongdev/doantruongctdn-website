@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { TabMain } from "../../store/tab-main";
+import { TabMain } from "../../../store/tab-main";
 import ChangeTheme from "./change-theme";
-import { MenuIcon } from "@heroicons/react/outline";
+import { MenuIcon } from "@heroicons/react/24/outline";
+import NavMenu from "./nav-menu";
+import ButtonHeader from "./button-header";
+import LogoHeader from "./logo_header";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -57,43 +59,9 @@ export default function Header() {
   return (
     <header className="header" id="header">
       <nav className="nav container">
-        <a href="#" className="nav__logo">
-          <img
-            src="/assets/logo/logo-doan.png"
-            className="nav__logo-icon"
-            alt=""
-          />
-          Đoàn trường THPT chuyên <br /> Trần Đại Nghĩa
-        </a>
-        <div
-          className={`nav__menu ${isMenuOpen ? "show-menu" : ""}`}
-          id="nav-menu"
-        >
-          <ul className="nav__list">
-            {TabMain.map((tab, index) => (
-              <li className="nav__item" key={index}>
-                <a
-                  href={`${tab.link}`}
-                  className={`nav__link ${index === 0 ? "active-link" : ""} ${
-                    tab.class
-                  }`}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="nav__close" id="nav-close" onClick={toggleMenu}>
-            <i className="ri-close-line"></i>
-          </div>
-        </div>
-
-        <div className="nav__btns">
-          <ChangeTheme />
-          <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
-            <MenuIcon className="w-5" />
-          </div>
-        </div>
+        <LogoHeader />
+        <NavMenu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} tabItems={TabMain} />
+        <ButtonHeader toggleMenu={toggleMenu} />
       </nav>
     </header>
   );

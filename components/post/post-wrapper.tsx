@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowSmLeftIcon } from "@heroicons/react/outline";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 function PostWrapper({ children, className }) {
   const router = useRouter();
@@ -12,7 +12,7 @@ function PostWrapper({ children, className }) {
         className="doantruong__return-box fixed left-3 top-3 w-10 !opacity-100"
         onClick={handleGoBack}
       >
-        <ArrowSmLeftIcon className="doantruong__return button--flex" />
+        <ArrowLeftIcon className="doantruong__return button--flex" />
       </div>
       <div className="pt-28 pb-12 md:pt-40 md:pb-20">{children}</div>
     </div>

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowSmLeftIcon, ArrowSmRightIcon } from "@heroicons/react/outline";
-// import mixitup from "mixitup";
-const TRANSITION_DURATION = 250;
+import { ClbDaSlider } from "./clb-da-slider";
+import { ClbDaFilters } from "./clb-da-filters";
 export default function ClbDa() {
-  const [clbinfo, SetClbinfo] = useState([]);
+  const [clbinfo, SetClbinfo] = useState({ tags: [], data: [] });
   const [activeTab, setActiveTab] = useState("all");
   const [scroll, setScroll] = useState(0);
   const clbdasContainerRef = useRef<HTMLDivElement>();
@@ -78,69 +77,20 @@ export default function ClbDa() {
   useEffect(() => {
     ClbDaList();
   }, []);
+
   return (
     <section className="clbdas section" id="clbda">
       <h2 className="section__title-center clbdas__title container">
         CÂU LẠC BỘ - DỰ ÁN
       </h2>
-      <div className="clbdas__filters">
-        <button
-          className="button button--flex clbdas__filters-btn"
-          id="prev-btn"
-        >
-          <div
-            className="clbdas__filters-icon w-8 hover:bg-gray-200 rounded-md"
-            onClick={handlePrevClick}
-          >
-            <ArrowSmLeftIcon />
-          </div>
-        </button>
-
-        <div className="clbdas__slider select-none">
-          {clbinfo["tags"]?.map((tag, index) => (
-            <span
-              key={index}
-              className={`clbdas__item ${
-                activeTab === tag.filter && "active-clbdas"
-              }`}
-              data-filter={tag.filter}
-              onClick={() => handleTabClick(tag.filter)}
-            >
-              {tag.name}
-            </span>
-          ))}
-        </div>
-        <button
-          className="button button--flex clbdas__filters-btn "
-          id="next-btn"
-        >
-          <div
-            className="clbdas__filters-icon w-8 hover:bg-gray-200 rounded-md"
-            onClick={handleNextClick}
-          >
-            <ArrowSmRightIcon />
-          </div>
-        </button>
-      </div>
-      <div
-        ref={clbdasContainerRef}
-        className="clbdas__container container grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
-      >
-        {clbinfo["data"]?.map((data: any, index: any) => (
-          <a
-            ref={(element) => (clbdasCardRefs[index] = element)}
-            key={index}
-            href={"clb-da/" + data.id}
-            className={`clbdas__card mix ${data.tag}`}
-          >
-            <img
-              src={`${data.banner}`}
-              alt=""
-              className="clbdas__img"
-            />
-          </a>
-        ))}
-      </div>
+      <ClbDaFilters
+        clbinfo={clbinfo.tags}
+        activeTab={activeTab}
+        handleTabClick={handleTabClick}
+        handlePrevClick={handlePrevClick}
+        handleNextClick={handleNextClick}
+      />
+      <ClbDaSlider clbinfo={clbinfo.data} clbdasContainerRef={clbdasContainerRef} clbdasCardRefs={clbdasCardRefs} />
     </section>
   );
 }

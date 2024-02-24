@@ -1,9 +1,5 @@
-import { getAllPosts, getLinksMapping, getPostBySlug } from "../../lib/api";
-import ErrorPage from "next/error";
 import path from "path";
-import { markdownToHtml } from "../../lib/markdownToHtml";
 import { useRouter } from "next/router";
-import PostType from "../../interfaces/post";
 import { NextSeo } from "next-seo";
 import PostWrapper from "../../components/post/post-wrapper";
 import PostSingle from "../../components/post/post-single";
@@ -20,15 +16,15 @@ export default function ShowClbDa() {
   const [absUrl, setAbsUrl] = useState<string>();
   const [docSlug, setDocSlug] = useState<string>();
   // console.log(urlbase);
-  
+
   async function getApi() {
     const fields = "title,content,logo,BgColor,textColor,imageList,slug";
     const apiEndpoint = `${urlbase}/api/file/readfile?slug=${urlfolder}/${docSlug}&fields=${fields}`;
     const res = await fetch(apiEndpoint);
     const raws = await res.json();
-    
+
     setAbsUrl(`${urlbase}/${urlfolder}/${docSlug}`);
-    setPost(raws);    
+    setPost(raws);
   }
   useEffect(() => {
     if (docSlug) {

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useLayoutEffect, useRef } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 interface SlipImageEffectProps {
   children: ReactNode;
@@ -17,9 +17,8 @@ function generateLoaderColumn(
   return (
     <div className={`activityhot__loader-column ${isAlt ? "is-alt" : ""}`}>
       <div
-        className={`activityhot__loader__column-inner ${
-          isReversed ? "is-reversed" : ""
-        } ${isEdge ? "is-edge" : ""} ${isCenter ? "is-center" : ""}`}
+        className={`activityhot__loader__column-inner ${isReversed ? "is-reversed" : ""
+          } ${isEdge ? "is-edge" : ""} ${isCenter ? "is-center" : ""}`}
       >
         {[...Array(5)].map((_, index) => (
           <div key={index} className="activityhot__loader__img-wrap">
@@ -31,9 +30,8 @@ function generateLoaderColumn(
               }
               loading="eager"
               alt=""
-              className={`activityhot__loader__img ${
-                isMiddle && index === 2 ? "is-middle" : ""
-              }`}
+              className={`activityhot__loader__img ${isMiddle && index === 2 ? "is-middle" : ""
+                }`}
             />
           </div>
         ))}

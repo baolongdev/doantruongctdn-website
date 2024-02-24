@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/outline";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 export default function ChangeTheme() {
   const [theme, setTheme] = useState("light");
   const [icon, setIcon] = useState(<SunIcon className="w-5" />);

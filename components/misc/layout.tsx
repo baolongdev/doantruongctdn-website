@@ -1,5 +1,5 @@
-import Footer from './footer'
-import Header from './header'
+import Footer from './footer-component/footer'
+import Header from './header-component/header'
 import Meta from './meta'
 
 type Props = {

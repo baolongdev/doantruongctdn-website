@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ArrowSmLeftIcon } from "@heroicons/react/outline";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { convertNewlinesToSpans } from "../../components/utils/convertNewlinesToSpans ";
 import { useRouter } from "next/router";
 //
@@ -300,7 +300,7 @@ export default function index() {
         ref={btnReturnRef}
         onClick={handleGoBack}
       >
-        <ArrowSmLeftIcon className="doantruong__return button--flex" />
+        <ArrowLeftIcon className="doantruong__return button--flex" />
       </div>
       <div
         className="doantruong__container"

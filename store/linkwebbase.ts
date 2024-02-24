@@ -1,6 +1,6 @@
 
 let hostname;
-if (typeof window !== 'undefined') { 
+if (typeof window !== 'undefined') {
     hostname = window.location.origin;
 }
 

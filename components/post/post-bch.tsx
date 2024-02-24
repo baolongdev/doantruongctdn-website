@@ -4,7 +4,7 @@ import Backlinks from "../misc/backlinks";
 import PostBody from "./post-body";
 import PostMeta from "./post-meta";
 import { convertNewlinesToSpans } from "../utils/convertNewlinesToSpans ";
-import { ArrowSmLeftIcon } from "@heroicons/react/outline";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 
 type Props = {
@@ -19,13 +19,13 @@ function PostBchSingle({ title, subtitle, data }: Props) {
   const handleGoBack = () => {
     router.back();
   };
-  
+
   return (
     <section className="bch px-5" id="bch">
       <div className="doantruong__return-box fixed left-3 top-3 w-10 !opacity-100"
         onClick={handleGoBack}
       >
-        <ArrowSmLeftIcon className="doantruong__return button--flex" />
+        <ArrowLeftIcon className="doantruong__return button--flex" />
       </div>
       <div className="bch__data">
         <div className="bch__data-img">
