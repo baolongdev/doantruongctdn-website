@@ -2,8 +2,8 @@ import React from "react";
 
 import PostPreview from "../post/post-preview";
 import type Post from "../../interfaces/post";
-import PopularPosts from "./editors-pick";
-import PreviewLink from "../misc/preview-link";
+// import PopularPosts from "./editors-pick";
+// import PreviewLink from "../misc/preview-link";
 import MenuAside from "./menu-aside";
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
   onPopularPosts?: boolean;
 };
 
-function PostList({ posts, title, onPopularPosts=true }: Props) {
+function PostList({ posts, title, onPopularPosts = true }: Props) {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -42,7 +42,7 @@ function PostList({ posts, title, onPopularPosts=true }: Props) {
 
             {/* Sidebar */}
             {onPopularPosts && (
-              <MenuAside/>
+              <MenuAside />
             )}
           </div>
         </div>
