@@ -207,7 +207,7 @@ export default function SlipImageTopEffect({
               src={
                 /^https:\/\//.test(image)
                   ? image
-                  : `../md_assets/activities/${image}`
+                  : `../md_assets/clb-da/${image}`
               }
               // src={`../md_assets/clb-da/${image}`}
               alt=""
@@ -218,7 +218,9 @@ export default function SlipImageTopEffect({
 
       <img
         src={
-          /^https:\/\//.test(logo) ? `../md_assets/activities/${logo}` : logo
+          /^https:\/\//.test(logo)
+            ? logo
+            : `../md_assets/clb-da/${logo}`
         }
         className="clbinfo__logo-overlay"
         ref={LogoOverlayRef}
