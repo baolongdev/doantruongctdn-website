@@ -11,6 +11,8 @@ import { NextUIProvider } from "@nextui-org/system";
 import ScrollRevealComponent from '../components/utils/scrollreveal';
 import { Montserrat } from 'next/font/google';
 
+const montserrat = Montserrat({ subsets: ['vietnamese'] });
+
 function setupPostHog() {
   // setup posthog
   const router = useRouter();
@@ -35,7 +37,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <style jsx global>{`
         :root {
-          --body-font: !${Montserrat().style.fontFamily};
+          --body-font: !${montserrat.style.fontFamily};
         }
       `}</style>
       <DefaultSeo {...SEO} />
