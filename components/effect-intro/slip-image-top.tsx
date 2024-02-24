@@ -183,7 +183,7 @@ export default function SlipImageTopEffect({
         };
       }
     );
-    return () => {};
+    return () => { };
   }, []);
 
   return (
@@ -206,8 +206,8 @@ export default function SlipImageTopEffect({
               ref={(el) => (imageRefs.current[index] = el)}
               src={
                 /^https:\/\//.test(image)
-                  ? `../md_assets/activities/${image}`
-                  : image
+                  ? image
+                  : `../md_assets/activities/${image}`
               }
               // src={`../md_assets/clb-da/${image}`}
               alt=""
